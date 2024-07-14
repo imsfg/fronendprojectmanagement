@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-
+import { toast } from "react-toastify";
 const Grid = ({key,title,description,email,useremail,deadline,status,id}) => {
     const [statusmail,setstatusmail]=useState(status);
     const changeStatus = async (e) => {
@@ -19,8 +19,9 @@ const Grid = ({key,title,description,email,useremail,deadline,status,id}) => {
     
           if (response.data.success) {
             setstatusmail(newStatus);
+            toast.success(response.data.message);
           } else {
-            alert(response.data.message);
+            toast.error(response.data.message);
           }
         } catch (error) {
           console.error('Error updating status:', error);

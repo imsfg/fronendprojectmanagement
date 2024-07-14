@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Navigate } from "react-router-dom";
 
@@ -12,6 +12,7 @@ import MyProjects from "../../../components/myprojects/MyProjects";
 
 const Home = () => {
   const token = localStorage.getItem("token");
+  
   const handleLogout = () => {
     localStorage.removeItem('token');
     window.location.reload();
